@@ -2,7 +2,7 @@
 
 ---
 
-Let's say you want to focus an input when the component mounts.
+Let's say you want to focus an input when the component mounts. //when it renderS?
 
 ---
 
@@ -98,15 +98,19 @@ Use `useRef`
 
 ```js
 const ConfirmButton = () => {
+
+  //btn will be equal to <button ref={btn} id="confirm-button">Confirm</button> on render.s
+
+  const btn = React.useRef(null);
   React.useEffect(() => {
-    const btn = document.getElementById('confirm-button');
+    // const btn = document.getElementById('confirm-button');
 
     if (btn) {
-      btn.focus();
+      btn.current.focus();
     }
   }, []);
 
-  return <button id="confirm-button">Confirm</button>;
+  return <button ref={btn} id="confirm-button">Confirm</button>;
 };
 ```
 
