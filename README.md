@@ -201,6 +201,7 @@ React.useEffect(() => {
   document.title = `${numCookies} cookies - Cookie Clicker Workshop`;
 
   return () => {
+    // HIGHLIGHT.
     document.title = `Cookie Clicker Workshop`;
   };
 }, [numCookies]);
@@ -261,6 +262,7 @@ In our case, it's a bit trickier since we're rendering multiple items and we onl
 Here's a hint: Write a new hook inside `Item`. You can add a new prop to `Item` to tell it whether this particular item is the first item in the list or not. If the item is the first, you can trigger the focus. Otherwise, do nothing.
 
 Remember, **you cannot use hooks conditionally**. This won't work:
+
 
 ```js
 if (someParam) {
